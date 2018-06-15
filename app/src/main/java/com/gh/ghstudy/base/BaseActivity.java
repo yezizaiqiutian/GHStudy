@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
+import com.gh.ghstudy.R;
 import com.gh.ghstudy.utils.AppManager;
 import com.gh.ghstudy.utils.status.StatusBarUtil;
 
@@ -70,8 +71,10 @@ public class BaseActivity extends AppCompatActivity {
      * 设置状态栏颜色,需要在初始化View后调用
      */
     protected void setStatusBar() {
-        StatusBarUtil.setTranslucentForImageView(mActivity, 0, null);
-//        StatusBarUtil.setColor(mActivity, getResources().getColor(R.color.color_999999));
+        //图片
+//        StatusBarUtil.setTranslucentForImageView(mActivity, 0, null);
+        //颜色
+        StatusBarUtil.setColor(mActivity, getResources().getColor(R.color.color_999999));
     }
 
     /**
