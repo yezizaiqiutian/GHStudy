@@ -79,8 +79,6 @@ public class ShapActivity extends BaseActivity {
             rotateDrawable.setLevel(level);
             level += 1000;
         }
-
-        ;
     };
 
 

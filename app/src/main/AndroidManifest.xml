@@ -19,7 +19,6 @@
             </intent-filter>
         </activity>
 
-        <!--启动页-->
         <activity
             android:name=".demo.shap.ShapActivity">
         </activity>

@@ -2,6 +2,7 @@ package com.gh.ghstudy.base;
 
 import android.content.Context;
 import android.content.pm.ActivityInfo;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -9,6 +10,9 @@ import android.support.v7.app.AppCompatActivity;
 import com.gh.ghstudy.R;
 import com.gh.ghstudy.utils.AppManager;
 import com.gh.ghstudy.utils.status.StatusBarUtil;
+import com.r0adkll.slidr.Slidr;
+import com.r0adkll.slidr.model.SlidrConfig;
+import com.r0adkll.slidr.model.SlidrPosition;
 
 /**
  * @author: gh
@@ -20,6 +24,9 @@ public class BaseActivity extends AppCompatActivity {
 
     protected Context mContext = null;
     protected BaseActivity mActivity = null;
+
+    private SlidrConfig mSlidrConfig;
+    private SlidrConfig.Builder mBuilder;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -47,12 +54,28 @@ public class BaseActivity extends AppCompatActivity {
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
+        init();
         initBundle();
         initTitle();
         initView();
         initData();
         initListener();
         initLoad();
+    }
+
+    private void init() {
+        int primary = getResources().getColor(R.color.colorPrimary);
+        int secondary = getResources().getColor(R.color.colorAccent);
+        mBuilder = new SlidrConfig.Builder().primaryColor(primary)
+                .secondaryColor(secondary)
+                .scrimColor(Color.BLACK)
+                .position(SlidrPosition.LEFT)
+                .scrimStartAlpha(0.8f)
+                .scrimEndAlpha(0f)
+                .velocityThreshold(5f)
+                .distanceThreshold(.35f);
+        mSlidrConfig = mBuilder.build();
+        Slidr.attach(this, mSlidrConfig);
     }
 
     @Override
