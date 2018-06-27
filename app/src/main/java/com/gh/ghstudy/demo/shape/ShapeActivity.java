@@ -1,4 +1,4 @@
-package com.gh.ghstudy.demo.shap;
+package com.gh.ghstudy.demo.shape;
 
 import android.content.Context;
 import android.content.Intent;
@@ -8,7 +8,6 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.Nullable;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.gh.ghstudy.R;
 import com.gh.ghstudy.base.BaseActivity;
@@ -31,13 +30,13 @@ import butterknife.ButterKnife;
  * https://blog.csdn.net/lonelyroamer/article/details/8252533
  *
  */
-public class ShapActivity extends BaseActivity {
+public class ShapeActivity extends BaseActivity {
 
     @BindView(R.id.id_iv_roate)
     ImageView id_iv_roate;
 
     public static void actionStart(Context context) {
-        Intent intent = new Intent(context, ShapActivity.class);
+        Intent intent = new Intent(context, ShapeActivity.class);
         context.startActivity(intent);
     }
 
@@ -63,7 +62,9 @@ public class ShapActivity extends BaseActivity {
     private Thread thread = new Thread(new Runnable() {
         public void run() {
             while (level <= 10000) {
-                handler.sendEmptyMessage(0x00);
+                if (handler != null) {
+                    handler.sendEmptyMessage(0x00);
+                }
                 try {
                     Thread.sleep(2000);
                 } catch (InterruptedException e) {
@@ -75,11 +76,18 @@ public class ShapActivity extends BaseActivity {
 
     private Handler handler = new Handler() {
         public void handleMessage(Message msg) {
-            Toast.makeText(mContext, level + "", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(mContext, level + "", Toast.LENGTH_SHORT).show();
             rotateDrawable.setLevel(level);
             level += 1000;
         }
     };
 
-
+    @Override
+    protected void onDestroy() {
+        if (handler != null) {
+            handler.removeCallbacksAndMessages(null);
+        }
+        handler = null;
+        super.onDestroy();
+    }
 }

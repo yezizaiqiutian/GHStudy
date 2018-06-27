@@ -5,9 +5,16 @@
     android:background="@color/white"
     android:orientation="vertical">
 
-    <TextView
+    <Button
+        android:id="@+id/id_btn_shape"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="SHOW" />
+        android:text="Shape" />
+
+    <Button
+        android:id="@+id/id_btn_keyboard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="键盘" />
 
 </LinearLayout>

@@ -5,7 +5,7 @@ import android.support.annotation.Nullable;
 
 import com.gh.ghstudy.base.BaseActivity;
 import com.gh.ghstudy.base.MyApplication;
-import com.gh.ghstudy.demo.shap.ShapActivity;
+import com.gh.ghstudy.demo.HomeActivity;
 
 /**
  * @author: gh
@@ -21,7 +21,7 @@ public class SplashActivity extends BaseActivity {
         MyApplication.getInstance().isServer = true;
         setContentView(R.layout.activity_splash);
 
-        ShapActivity.actionStart(mContext);
+        HomeActivity.actionStart(mContext);
 
     }
 }
