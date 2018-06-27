@@ -8,10 +8,14 @@ import android.support.annotation.Nullable;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.RelativeLayout;
 
 import com.gh.ghstudy.R;
 import com.gh.ghstudy.base.BaseActivity;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 /**
  * @author: gh
@@ -19,10 +23,19 @@ import com.gh.ghstudy.base.BaseActivity;
  * @date: 2018/6/22.
  * @from:https://blog.csdn.net/smileiam/article/details/69055963 使用方法三
  */
-public class KeyboardActivity extends BaseActivity {
+public class Keyboard1Activity extends BaseActivity {
+
+    @BindView(R.id.id_tv_name)
+    EditText id_tv_name;
+    @BindView(R.id.id_tv_pwd)
+    EditText id_tv_pwd;
+    @BindView(R.id.login_btn)
+    Button login_btn;
+    @BindView(R.id.id_rootview)
+    RelativeLayout id_rootview;
 
     public static void actionStart(Context context) {
-        Intent intent = new Intent(context, KeyboardActivity.class);
+        Intent intent = new Intent(context, Keyboard1Activity.class);
         context.startActivity(intent);
     }
 
@@ -30,17 +43,14 @@ public class KeyboardActivity extends BaseActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_keyboard);
+        setContentView(R.layout.activity_keyboard_001);
+        ButterKnife.bind(this);
 
     }
 
     @Override
     protected void initView() {
-        RelativeLayout main = (RelativeLayout) findViewById(R.id.main);
-        Button login_btn = (Button) findViewById(R.id.login_btn);
-
-        addLayoutListener(main, login_btn);
-
+        addLayoutListener(id_rootview, login_btn);
     }
 
     /**

@@ -12,9 +12,15 @@
         android:text="Shape" />
 
     <Button
-        android:id="@+id/id_btn_keyboard"
+        android:id="@+id/id_btn_keyboard_001"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="键盘" />
+        android:text="键盘遮挡1" />
+
+    <Button
+        android:id="@+id/id_btn_keyboard_002"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="键盘遮挡2" />
 
 </LinearLayout>

@@ -20,7 +20,8 @@
 
         <activity android:name=".demo.HomeActivity" />
         <activity android:name=".demo.shape.ShapeActivity" />
-        <activity android:name=".demo.keyboard.KeyboardActivity" />
+        <activity android:name=".demo.keyboard.Keyboard1Activity" />
+        <activity android:name=".demo.keyboard.Keyboard2Activity" />
 
     </application>
 </manifest>

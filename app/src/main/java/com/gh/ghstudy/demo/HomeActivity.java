@@ -8,7 +8,8 @@ import android.view.View;
 
 import com.gh.ghstudy.R;
 import com.gh.ghstudy.base.BaseActivity;
-import com.gh.ghstudy.demo.keyboard.KeyboardActivity;
+import com.gh.ghstudy.demo.keyboard.Keyboard1Activity;
+import com.gh.ghstudy.demo.keyboard.Keyboard2Activity;
 import com.gh.ghstudy.demo.shape.ShapeActivity;
 
 import butterknife.ButterKnife;
@@ -34,14 +35,17 @@ public class HomeActivity extends BaseActivity {
         ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.id_btn_shape, R.id.id_btn_keyboard})
+    @OnClick({R.id.id_btn_shape, R.id.id_btn_keyboard_001, R.id.id_btn_keyboard_002})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.id_btn_shape:
                 ShapeActivity.actionStart(mContext);
                 break;
-            case R.id.id_btn_keyboard:
-                KeyboardActivity.actionStart(mContext);
+            case R.id.id_btn_keyboard_001:
+                Keyboard1Activity.actionStart(mContext);
+                break;
+            case R.id.id_btn_keyboard_002:
+                Keyboard2Activity.actionStart(mContext);
                 break;
         }
     }
